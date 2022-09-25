@@ -16,15 +16,21 @@ class Ticket(Base):
         self.date = date
         self.problem = problem
 
+    # Add ticket to SQL database
+    def add(self):
+        Base.metadata.create_all(engine)
+        session = Session()
+        session.add(self)
+        session.commit()
+        session.close()
 
-# Add a new ticket to the SQL database
-def add_ticket(name, date, problem):
-    Base.metadata.create_all(engine)
-    session = Session()
-    ticket = Ticket(name, date, problem)
-    session.add(ticket)
-    session.commit()
-    session.close()
+    # Remove ticket from SQL database
+    def remove(self):
+        Base.metadata.create_all(engine)
+        session = Session()
+        session.delete(self)
+        session.commit()
+        session.close()
 
 
 # Query all tickets from the SQL database

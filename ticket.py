@@ -1,6 +1,5 @@
 from sqlalchemy import Column, String, Integer, Date
-from base import Session, engine, Base
-
+# TODO: Base should be from sqlalchemy.ext.declarative import declarative_base
 
 # Create and map the ticket class 
 class Ticket(Base):
@@ -17,26 +16,4 @@ class Ticket(Base):
         self.problem = problem
 
     # Add ticket to SQL database
-    def add(self):
-        Base.metadata.create_all(engine)
-        session = Session()
-        session.add(self)
-        session.commit()
-        session.close()
 
-    # Remove ticket from SQL database
-    def remove(self):
-        Base.metadata.create_all(engine)
-        session = Session()
-        session.delete(self)
-        session.commit()
-        session.close()
-
-
-# Query all tickets from the SQL database
-def query_tickets():
-    Base.metadata.create_all(engine)
-    session = Session()
-    tickets = session.query(Ticket).all()
-    session.close()
-    return tickets

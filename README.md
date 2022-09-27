@@ -13,7 +13,7 @@ pip install flask sqlalchemy psycopg2-binary
 To create and start the database:
 
 ```bash
-docker run --name sqlalchemy-orm-psql \
+docker run --name titan-techs \
     -e POSTGRES_PASSWORD=pass \
     -e POSTGRES_USER=usr \
     -e POSTGRES_DB=sqlalchemy \
@@ -24,17 +24,17 @@ docker run --name sqlalchemy-orm-psql \
 To stop the database:
 
 ```
-docker stop sqlalchemy-orm-psql
+docker stop titan-techs
 ```
 
 To start the database:
 
 ```
-docker start sqlalchemy-orm-psql
+docker start titan-techs
 ```
 
 To delete the database:
 
 ```
-docker rm sqlalchemy-orm-psql
+docker rm titan-techs
 ```

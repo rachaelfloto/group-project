@@ -1,12 +1,16 @@
+{% extends 'layout.html' %} {% block body %}
+
 <h1>
     Titans Tech - Create Ticket
 </h1>
-<form method="post">
-  Name: <input name=“name"/>
+<form action="/data" method="post">
+  Name: <input type="text" name=“name"/>
   <br/><br/>
-  Date: <input name=“date”/>
+  Date: <input type=date name="date" />
   <br/><br/>
-  Problem: <input name=“problem”/>
+  Problem: <input type="text" name="problem" />
   <br/><br/>
-  <button type=“submit”>Save</button>
+  <input type="submit" value="Save"/>
 </form>
+
+{% endblock %}

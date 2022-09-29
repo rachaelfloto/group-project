@@ -1,12 +1,9 @@
-from flask import Flask, render_template
-from data import Articles
+from flask import Flask, render_template, request, redirect
 
 # from ticket import Ticket
 
 app = Flask(__name__)
 app.debug = True
-
-Articles = Articles()
 
 
 @app.route('/')
@@ -15,13 +12,13 @@ def index():
 
 
 # New section to link form
-@app.route("/", methods=["GET", "POST"])
+@app.route("/data", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
         print(request.form["name"])
         print(request.form["date"])
         print(request.form["problem"])
-        return
+        return redirect("/")
     return render_template("newticket.html")
 
 

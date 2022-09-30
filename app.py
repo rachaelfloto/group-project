@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
-
-# from ticket import Ticket
+from ticket import Ticket, query_tickets
 
 app = Flask(__name__)
 app.debug = True
@@ -8,33 +7,27 @@ app.debug = True
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return render_template("home.html", tickets=query_tickets())
 
 
 # New section to link form
 @app.route("/data", methods=["GET", "POST"])
-def home():
+def data():
     if request.method == "POST":
-        print(request.form["name"])
-        print(request.form["date"])
-        print(request.form["problem"])
-        return redirect("/")
+        ticketdata = request.form
+        Ticket(ticketdata["name"], ticketdata["date"], ticketdata["problem"]).add()
+        return redirect("/listtickets")
     return render_template("newticket.html")
 
 
 @app.route('/newticket')
 def newticket():
-    return render_template('newticket.html')
+    return render_template("newticket.html", ticket=query_tickets())
 
 
-@app.route('/articles')
-def articles():
-    return render_template('articles.html', articles=Articles)
-
-
-@app.route('/article/<string:id>/')
-def article(id):
-    return render_template('article.html', id=id)
+@app.route('/listtickets')
+def listtickets():
+    return render_template("listtickets.html", tickets=query_tickets())
 
 
 if __name__ == '__main__':

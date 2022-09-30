@@ -1,8 +1,10 @@
-{% extends 'layout.html' %} {% block body %}
+{% extends 'layout.html' %}
 
-<h1>
+{% block body %}
+<div class="jumbotron text-center">
+<h2>
     Titans Tech - Create Ticket
-</h1>
+</h2>
 <form action="/data" method="post">
   Name: <input type="text" name="name"/>
   <br/><br/>
@@ -12,5 +14,5 @@
   <br/><br/>
   <input type="submit" value="Save"/>
 </form>
-
+</div>
 {% endblock %}

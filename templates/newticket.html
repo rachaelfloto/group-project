@@ -1,16 +1,35 @@
 {% extends 'layout.html' %}
+<style>
+h2 {
+color: #C49435;
+}
 
+
+
+</style>
 {% block body %}
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="background-color: #00406F " >
+<style>
+h2 {
+color: #C49435;
+}
+form  {
+    color: white
+}
+input {
+    background-color: #00406F;
+    border-color: #C49435;
+}
+</style>
 <h2>
     Titans Tech - Create Ticket
 </h2>
 <form action="/data" method="post">
-  Name: <input type="text" name="name"/>
+  Name: <input type="text" name="name" />
   <br/><br/>
-  Date: <input type=date name="date" />
+  Date: <input type=date name="date"  />
   <br/><br/>
-  Problem: <input type="text" name="problem" />
+  Problem: <input type="text" name="problem"  />
   <br/><br/>
   <input type="submit" value="Save"/>
 </form>

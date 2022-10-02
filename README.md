@@ -1,4 +1,4 @@
-# group-project
+# CEN 4031 Final project
 
 ## Requirements
 
@@ -8,18 +8,28 @@ Please install both docker and the below python packages:
 pip install flask sqlalchemy psycopg2-binary
 ```
 
-## Database
+## How To Run The Project
 
-To create and start the database:
+1. Start database in docker container
 
-```bash
-docker run --name titan-techs \
-    -e POSTGRES_PASSWORD=pass \
-    -e POSTGRES_USER=usr \
-    -e POSTGRES_DB=sqlalchemy \
-    -p 5432:5432 \
-    -d postgres
 ```
+docker run --name titan-techs \
+-e POSTGRES_PASSWORD=pass \
+-e POSTGRES_USER=usr \
+-e POSTGRES_DB=sqlalchemy \
+-p 5432:5432 \
+-d postgres
+```
+
+2. Checkout the source code and run
+
+```
+git clone https://github.com/rachaelfloto/group-project.git
+cd group-project
+python app.py
+```
+
+## Database
 
 To stop the database:
 
